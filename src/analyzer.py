@@ -86,7 +86,8 @@ class Log:
             if line.strip():  # Skip empty lines
                 extracted_data_dict = self.extract(line)
                 if not extracted_data_dict:
-                    continue
+                    print("Invalid log file")
+                    return
                 log_type = extracted_data_dict["log_type"]
                 if log_type in self.types_dict:
                     self.types_dict[log_type] += 1
@@ -105,8 +106,11 @@ class Log:
             if most_frequent <= value:
                 most_frequent_level = key
                 most_frequent = value
+                
+        if most_frequent == 0:
+            most_frequent_level = "N/A"
 
-        report += "\n\n"
+        report += "\n"
         report += f"Total Logs: {self.total_logs}"
         report += "\n\n"
         report += f"Most Frequent Level: {most_frequent_level}"

@@ -63,5 +63,19 @@ class log:
         self.make_report()
 
     def make_report(self):
-        pass
+        report = "===== Log Report =====\n\n"
+        most_frequent_level = ""
+        most_frequent = 0
+        for key, value in self.types_dict.items():
+            report += f"{key}: {value}\n"
+            if most_frequent <= value:
+                most_frequent_level = key
+                most_frequent = value
+
+        report += "\n\n"
+        report += f"Total Logs: {self.total_logs}"
+        report += "\n\n"
+        report += most_frequent_level
+
+        print(report)
         

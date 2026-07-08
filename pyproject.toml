@@ -1,0 +1,15 @@
+[project]
+name = "log-analyzer"
+version = "0.1.0"
+description = "A Python log analysis tool"
+requires-python = ">=3.10"
+dependencies = [
+    "pytest",
+    "pytest-cov"
+]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+
+[tool.ruff]
+line-length = 88
